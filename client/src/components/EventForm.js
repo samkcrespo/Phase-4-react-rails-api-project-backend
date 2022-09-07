@@ -1,10 +1,32 @@
-import React, { useEffect, useState } from "react";
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+
 
 function EventForm({handleAddEvent}){
-    const [name, setName] = useState("");
-    const [when, setWhen] = useState("");
-    const [location, setLocation] = useState("");
+    const [name, setName] = React.useState("");
+    const [when, setWhen] = React.useState("");
+    const [location, setLocation] = React.useState("");
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
+    const style = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 400,
+      bgcolor: 'background.paper',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4,
+    };
+    
 
 
     const handleNewEvents = (e) => {
@@ -29,7 +51,16 @@ function EventForm({handleAddEvent}){
     
     return(
         <div className="ui segment">
-                <form id="form" className="ui form" onSubmit={handleNewEvents}>
+          <Button onClick={handleOpen} startIcon={<EventAvailableIcon />}>Add A New Event</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <form id="form" className="ui form" onSubmit={handleNewEvents}>
                 <div className="inline fields">
                     <input
                     type="text"
@@ -53,10 +84,15 @@ function EventForm({handleAddEvent}){
                     onChange={(e) => setLocation(e.target.value)}
                     />
                 </div>
-                <button className="ui button" type="submit">
-                    Add New Volunteer Event!
-                </button>
+                <Button variant="outlined" type="submit">Add Event</Button>
                 </form>
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            All fields are required
+          </Typography>
+        </Box>
+      </Modal>
+               
             </div>
         );
 }
