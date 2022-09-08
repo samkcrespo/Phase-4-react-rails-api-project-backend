@@ -38,7 +38,7 @@ function Home({ volunteer }) {
         a better future for all of us. Help out once, help out once a week. Be a
         part of a great community and a tremendous state!
       </p>
-      {volunteerEvents.map((event) => {
+      {/* {volunteerEvents.map((event) => {
         return (
           <VolunteerEvents
             event={event}
@@ -47,7 +47,7 @@ function Home({ volunteer }) {
             handleDeleteSignup={handleDeleteSignup}
           />
         );
-      })}
+      })} */}
     </div>
   );
 }

@@ -1,11 +1,21 @@
-import React, {useState, useEffect} from "react";
+
+import * as React from "react";
+// import Calendar from 'react-calendar';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { DesktopDatePicker } from '@mui/x-date-pickers';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
+import Input from '@mui/material/Input';
 
 
 function EditEvent({handleUpdateEvent, event} ){
-        const [when, setWhen] = useState(event.when);
+        const [when, setWhen] = React.useState(event.when);
+    
         // const [name, setName] = useState(name);
         // const [location, setLocation] = useState(location);
-
+        // const [value, onChange] = React.useState(new Date());
     
     
     
@@ -31,9 +41,24 @@ function EditEvent({handleUpdateEvent, event} ){
     
         return (
         <form className="edit-when" onSubmit={handleFormSubmit}>
-            <input  type="text" onChange={(e) => setWhen(e.target.value)} value={when} name="when" placeholder="" />
- 
-          <input type="submit" value="Save" />
+            {/* <input  type="text" onChange={(e) => setWhen(e.target.value)} value={when} name="when" placeholder="" /> */}
+            {/* <Calendar onChange={onChange} value={value} /> */}
+           
+      
+      <TextField
+        id="date"
+        label="Event Date"
+        type="date"
+        defaultValue={event.when}
+        sx={{ width: 220, paddingRight: "10px" }}
+        onChange={(e) => setWhen(e.target.value)} value={when}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      /> 
+      <Input type="submit" value="Save" />
+          {/* <input type="submit" value="Save" /> */}
+         
          </form>
         )
       }

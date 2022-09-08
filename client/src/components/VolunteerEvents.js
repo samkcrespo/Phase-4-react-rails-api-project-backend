@@ -27,7 +27,7 @@ function VolunteerEvents({ event, volunteer, handleDeleteSignup, }) {
         <Typography level="h2" fontSize="md" sx={{ alignSelf: 'flex-start' }}>
         {event.name}
         </Typography>
-        <Typography level="body2">Date: {event.date}</Typography>
+        {/* <Typography level="body2">Date: {event.date}</Typography> */}
       </Box>
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img

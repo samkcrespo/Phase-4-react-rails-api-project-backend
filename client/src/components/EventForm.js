@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
-
+import Alert from '@mui/joy/Alert';
 
 function EventForm({handleAddEvent}){
     const [name, setName] = React.useState("");
@@ -60,6 +60,7 @@ function EventForm({handleAddEvent}){
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
+
           <form id="form" className="ui form" onSubmit={handleNewEvents}>
                 <div className="inline fields">
                     <input
@@ -88,7 +89,9 @@ function EventForm({handleAddEvent}){
                 </form>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            All fields are required
+        
+            <Alert color="success">All fields are required</Alert>
+         
           </Typography>
         </Box>
       </Modal>
