@@ -1,87 +1,3 @@
-// import React from "react";
-// import { NavLink } from "react-router-dom";
-// import textlogo from "../Assets/vnlogo.png";
-
-// function NavBar({ user, setUser }) {
-//   const linkStyles = {
-//     display: "inline-block",
-//     width: "120px",
-//     padding: "12px",
-//     borderRadius: "18px",
-//     margin: "6px 6px 6px",
-//     background: "#9DBA94",
-//     textDecoration: "none",
-//     color: "black",
-//     fontSize: "14px",
-//   };
-
-//   function handleLogout() {
-//     fetch("/logout", { method: "DELETE" }).then((r) => {
-//       if (r.ok) {
-//         setUser(null);
-//       }
-//     });
-//   }
-
-//   return (
-//     <div className="navbar">
-//       <div className="nav-links">
-//         <NavLink to="/" exact className="nav-item">
-//           <img src={textlogo} alt="logo" />
-//         </NavLink>
-//         <NavLink
-//           to="/events"
-//           exact
-//           className="nav-item"
-//           style={linkStyles}
-//           activeStyle={{
-//             background: "lightblue",
-//           }}
-//         >
-//           Find Opportunities
-//         </NavLink>
-
-//         {user ? (
-//           <button
-//             style={linkStyles}
-//             className="nav-item"
-//             activeStyle={{
-//               background: "lightblue",
-//             }}
-//             onClick={handleLogout}
-//           >
-//             Logout
-//           </button>
-//         ) : (
-//           <>
-//             <NavLink
-//               to="/signup"
-//               className="nav-item"
-//               style={linkStyles}
-//               activeStyle={{
-//                 background: "lightblue",
-//               }}
-//             >
-//               Sign-Up
-//             </NavLink>
-//             <NavLink
-//               to="/login"
-//               className="nav-item"
-//               style={linkStyles}
-//               activeStyle={{
-//                 background: "lightblue",
-//               }}
-//             >
-//               Login
-//             </NavLink>
-//           </>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default NavBar;
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -159,24 +75,7 @@ export default function NavBar({ user, setUser }) {
             >
               {/* <MenuIcon /> */}
             </IconButton>
-            {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            > */}
+          
           </Box>
 
           <Typography
@@ -289,11 +188,11 @@ export default function NavBar({ user, setUser }) {
             )}
             {/* </Menu> */}
           </Box>
-
+          {user ? (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="user" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user.first_name} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -317,6 +216,9 @@ export default function NavBar({ user, setUser }) {
               </MenuItem>
             </Menu>
           </Box>
+           ) : (
+            null
+          )}
         </Toolbar>
       </Container>
     </AppBar>
