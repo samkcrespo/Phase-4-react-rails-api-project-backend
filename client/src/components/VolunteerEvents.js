@@ -14,7 +14,7 @@ function VolunteerEvents({ event, volunteer, handleDeleteSignup, }) {
     //     fetch(`/signups/${id}`,{ 
     //         method: "DELETE",
     //     });
-    //     handleDeleteSignup(id);
+    //     handleDeleteSignup(event.id);
     //   }
 
     return (
@@ -46,7 +46,7 @@ function VolunteerEvents({ event, volunteer, handleDeleteSignup, }) {
       <h5>Date: {event.date}</h5>
       <h6>Location: {event.location}</h6> */}
       <Stack direction="column" spacing={1}>
-      <Button variant="outlined" startIcon={<EventBusyIcon />} >
+      <Button variant="outlined" startIcon={<EventBusyIcon />}>
        Resign From Event
       </Button>
      

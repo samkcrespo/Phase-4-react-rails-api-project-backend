@@ -36,6 +36,7 @@ const theme = createTheme();
 export default function Login({ setUser }) {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();

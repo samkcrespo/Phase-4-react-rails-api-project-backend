@@ -4,22 +4,39 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import '@fontsource/roboto/400.css';
 import EventsContainer from "./EventsContainer";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import theme from "../theme";
+import { CircularProgress } from "@mui/material";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [sessionCheck, setSessionCheck] = useState(false);
+  const appliedTheme = createTheme(theme);
 
   useEffect(() => {
     // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+    handleCheckUser();
+  }, []);
+
+  function handleCheckUser() {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => {
+          setUser(user);
+        });
+      } else {
+        response.json().then((err) => console.log(err));
       }
     });
-  }, []);  
+    setSessionCheck(true);
+  }
 
+  if (sessionCheck) {
   return (
     <>
+      <ThemeProvider theme={appliedTheme} />
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>         
@@ -48,6 +65,19 @@ function App() {
       </main>
     </>
   );
+} else {
+  return (
+    <div>
+      <ThemeProvider theme={appliedTheme} />
+      <NavBar user={user} setUser={setUser} />
+      <CircularProgress color="secondary" />
+      <p>Loading...</p>
+
+      <ThemeProvider />
+    </div>
+  );
+}
+  
 }
 
 export default App;

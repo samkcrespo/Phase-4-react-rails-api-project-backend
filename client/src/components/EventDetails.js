@@ -36,7 +36,7 @@ function EventDetails({ event, volunteer, onEventDelete, handleUpdateEvent }) {
   }
 
   function handleDeleteClick() {
-    fetch(`events${event.id}`, {
+    fetch(`events/${event.id}`, {
       method: "DELETE",
     });
     onEventDelete(event.id);
