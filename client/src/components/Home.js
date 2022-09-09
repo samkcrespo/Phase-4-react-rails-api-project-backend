@@ -65,10 +65,10 @@ function Home({ volunteer }) {
       </Paper>
       </Box>
       </ThemeProvider>
+      {volunteer ? <Typography variant="h5">Your upcoming events</Typography> : null }
       {volunteerEvents.map((event) => {
         return (
           <>
-          <Typography variant="h5" >Your upcoming events</Typography>
           <VolunteerEvents
             event={event}
             key={event.id}
