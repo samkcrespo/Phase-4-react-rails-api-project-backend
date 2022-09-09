@@ -15,6 +15,10 @@ function App() {
   const [sessionCheck, setSessionCheck] = useState(false);
   const appliedTheme = createTheme(theme);
 
+  require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
+
   useEffect(() => {
     // auto-login
     handleCheckUser();
@@ -63,17 +67,18 @@ function App() {
         )}
        
       </main>
+    
     </>
   );
 } else {
   return (
     <div>
-      <ThemeProvider theme={appliedTheme} />
+      <ThemeProvider theme={appliedTheme}>
       <NavBar user={user} setUser={setUser} />
       <CircularProgress color="secondary" />
       <p>Loading...</p>
 
-      <ThemeProvider />
+      </ThemeProvider >
     </div>
   );
 }

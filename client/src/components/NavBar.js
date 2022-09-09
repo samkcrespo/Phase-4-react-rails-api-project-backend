@@ -6,19 +6,21 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
 import { NavLink } from "react-router-dom";
-import textlogo from "../Assets/vnlogo.png";
+// import textlogo from "../Assets/vnlogo.png";
+import textlogo from "../Assets/vn.png";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import theme from "../theme";
 
 export default function NavBar({ user, setUser }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const appliedTheme = createTheme(theme);
   function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -43,6 +45,7 @@ export default function NavBar({ user, setUser }) {
   };
 
   return (
+  
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>

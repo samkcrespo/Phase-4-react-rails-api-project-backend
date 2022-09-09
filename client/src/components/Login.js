@@ -14,6 +14,8 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import logo from "../Assets/photo.png";
 import { CardMedia } from "@mui/material";
+// import { useHistory } from "react-router-dom";
+
 function Copyright(props) {
   return (
     <Typography
@@ -34,21 +36,29 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login({ setUser }) {
+  require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
+ 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState([]);
+  // let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch(`/login`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setUser(user);
+          // history.push("/");
+        });
+      } else {
+        res.json().then((json) => setError(json.error));
       }
     });
   }
@@ -141,6 +151,7 @@ export default function Login({ setUser }) {
                   </Link>
                 </Grid>
               </Grid>
+              {error ? <div>{error}</div> : null}
             </Box>
           </Box>
           <Copyright />

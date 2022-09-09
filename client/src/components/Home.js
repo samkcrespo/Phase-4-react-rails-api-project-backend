@@ -3,12 +3,15 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import theme from "../theme";
 
 import VolunteerEvents from "./VolunteerEvents";
 
 function Home({ volunteer }) {
   const [volunteerEvents, setVolunteerEvents] = React.useState([]);
   const [signups, setSignups] = React.useState([]);
+  const appliedTheme = createTheme(theme);
   // ${volunteer.id}
   React.useEffect(() => {
     fetch(`/signups/`)
@@ -36,6 +39,7 @@ function Home({ volunteer }) {
        <Box
  
     >
+        <ThemeProvider theme={appliedTheme}> 
       <Box     sx={{
         display: 'justify-content',
         margin: '25px', padding: '25px'
@@ -60,6 +64,7 @@ function Home({ volunteer }) {
       </Typography>
       </Paper>
       </Box>
+      </ThemeProvider>
       {volunteerEvents.map((event) => {
         return (
           <>
@@ -74,6 +79,7 @@ function Home({ volunteer }) {
         );
       })} 
     </Box> 
+   
    
     
   );
