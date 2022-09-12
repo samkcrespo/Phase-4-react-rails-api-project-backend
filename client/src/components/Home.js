@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import theme from "../theme";
+import illustration from "../Assets/illustration.jpg";
 
 
 function Home({ volunteer }) {
@@ -40,6 +41,7 @@ function Home({ volunteer }) {
         part of a great community and a tremendous state!
 
         </Typography>
+        <div className="home-div">  <img src={illustration} alt="" className="home-img" /></div>
       </Typography>
       </Paper>
       </Box>
