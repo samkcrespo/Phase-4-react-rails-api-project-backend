@@ -4,6 +4,8 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import UserHome from "./UserHome";
+import VolunteerEvents from "./VolunteerEvents"
 import '@fontsource/roboto/400.css';
 import EventsContainer from "./EventsContainer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -46,6 +48,8 @@ console.log(window.React1 === window.React2);
         <Switch>         
           <Route exact path="/">
             <Home volunteer={user}/>
+           
+         
           </Route>
         </Switch>
         
@@ -53,6 +57,9 @@ console.log(window.React1 === window.React2);
           <Switch>
             <Route path="/events">
               <EventsContainer user={user} setUser={setUser} />
+            </Route>
+            <Route path="/user_home" >
+              <UserHome volunteer={user} />
             </Route>
           </Switch>
         ) : (

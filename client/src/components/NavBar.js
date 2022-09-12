@@ -115,7 +115,7 @@ export default function NavBar({ user, setUser }) {
                 ></Button>
               </NavLink>
             </MenuItem>
-            <MenuItem>
+            {/* <MenuItem>
               <NavLink to="/events">
                 <Button
                   onClick={handleCloseNavMenu}
@@ -131,9 +131,10 @@ export default function NavBar({ user, setUser }) {
                   Find Opportunities
                 </Button>
               </NavLink>
-            </MenuItem>
+            </MenuItem> */}
 
             {user ? (
+              <>
               <MenuItem>
                 <NavLink to="/logout" onClick={handleLogout}>
                   <Button
@@ -151,6 +152,41 @@ export default function NavBar({ user, setUser }) {
                   </Button>
                 </NavLink>
               </MenuItem>
+               <MenuItem>
+               <NavLink to="/events">
+                 <Button
+                   onClick={handleCloseNavMenu}
+                   className="btn btn-navbar"
+                   sx={{
+                     my: 2,
+                     color: "white",
+                     display: "block",
+                     fontFamily: "Roboto",
+                     textDecoration: "none",
+                   }}
+                 >
+                   Find Opportunities
+                 </Button>
+               </NavLink>
+             </MenuItem>
+             <MenuItem>
+               <NavLink to="/user_home">
+                 <Button
+                   onClick={handleCloseNavMenu}
+                   className="btn btn-navbar"
+                   sx={{
+                     my: 2,
+                     color: "white",
+                     display: "block",
+                     fontFamily: "Roboto",
+                     textDecoration: "none",
+                   }}
+                 >
+                   My Events
+                 </Button>
+               </NavLink>
+             </MenuItem>
+             </>
             ) : (
               <>
                 <MenuItem>
