@@ -68,12 +68,58 @@ code {
 
 .home-img {
 padding: 20px;
-border-radius: 10px;
+border-radius: 15px;
+width: 800px;
+display: left;
+
 
 
 }
 
-.home-div {
-  display: flex;
-  justify-content: center;
-}
+
+
+.footer {
+    background-color: #1a76d2;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;   
+    color: white; 
+    text-align: center;
+  }
+
+  .homecontainer {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    height: 850px;
+    border-radius: 10px;
+
+  }
+
+  .homepagetypog {
+    padding-top: 20px;
+    width: 600px;
+    background-color: #f7f4f4;
+    display: left;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  .homepagebutton {
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    background-color: #f7f4f4;
+    text-align: center;
+    display: block;
+  }
+  
+  .homepageimage {
+    
+    padding-bottom: 0px;
+    width: 600px;
+    display: block;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+   
+  }

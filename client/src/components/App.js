@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import UserHome from "./UserHome";
+
 import VolunteerEvents from "./VolunteerEvents"
 import '@fontsource/roboto/400.css';
 import EventsContainer from "./EventsContainer";
@@ -74,7 +76,7 @@ console.log(window.React1 === window.React2);
         )}
        
       </main>
-    
+      <Footer/>
     </>
   );
 } else {
@@ -86,6 +88,7 @@ console.log(window.React1 === window.React2);
       <p>Loading...</p>
 
       </ThemeProvider >
+      <Footer/>
     </div>
   );
 }

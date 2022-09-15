@@ -81,7 +81,7 @@ export default function NavBar({ user, setUser }) {
           
           </Box>
 
-          <Typography
+          {/* <Typography
             variant="h5"
             noWrap
             component="a"
@@ -98,9 +98,9 @@ export default function NavBar({ user, setUser }) {
             }}
           >
             LOGO
-          </Typography>
+          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <MenuItem>
+            {/* <MenuItem>
               <NavLink to="/">
                 <Button
                   onClick={handleCloseNavMenu}
@@ -113,9 +113,9 @@ export default function NavBar({ user, setUser }) {
                     textDecoration: "none",
                   }}
                 ></Button>
-              </NavLink>
-            </MenuItem>
-            {/* <MenuItem>
+              </NavLink> 
+            </MenuItem> */}
+            <MenuItem>
               <NavLink to="/events">
                 <Button
                   onClick={handleCloseNavMenu}
@@ -131,7 +131,7 @@ export default function NavBar({ user, setUser }) {
                   Find Opportunities
                 </Button>
               </NavLink>
-            </MenuItem> */}
+            </MenuItem>
 
             {user ? (
               <>
@@ -182,6 +182,7 @@ export default function NavBar({ user, setUser }) {
                      textDecoration: "none",
                    }}
                  >
+
                    My Events
                  </Button>
                </NavLink>
@@ -202,7 +203,7 @@ export default function NavBar({ user, setUser }) {
                         textDecoration: "none",
                       }}
                     >
-                      Login
+                      Log In
                     </Button>
                   </NavLink>
                 </MenuItem>

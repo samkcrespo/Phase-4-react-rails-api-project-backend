@@ -34,10 +34,16 @@ function EventsContainer({ user }) {
 
   return (
     <div>
-      {<EventForm handleAddEvent={handleAddEvent} />}
+      {user ? (
+       <div>   {<EventForm handleAddEvent={handleAddEvent} />}
       {events.map((event) => {
         return <EventDetails key={event.id} event={event} volunteer={user} onEventDelete={onEventDelete} handleUpdateEvent={handleUpdateEvent} />
       })}
+      </div> )
+      : (  <div><p>You must be logged in to view upcoming events!</p> </div>)
+     
+      }
+  
       
     </div>
   );
