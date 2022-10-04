@@ -15,10 +15,10 @@ import illust from "../Assets/illust.png";
 import bluegreen from "../Assets/bluegreenimg.png";
 import background from "../Assets/wickedbackground2.png";
 import homeimg from "../Assets/home_vn.png";
-
+// import { useHistory } from "react-router-dom";
 
 function Home({ volunteer }) {
-
+  // let history = useHistory();
 
 const appliedTheme = createTheme(theme);
   // ${volunteer.id}
@@ -29,6 +29,7 @@ const appliedTheme = createTheme(theme);
         <div className="homecontainer" style={{backgroundImage:`url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height:800, width:1669}}>
       <ThemeProvider theme={appliedTheme}>
         <Paper>
+  
           {/* <Grid item xs={12} alignItems="center"> */}
           <div id="section-3" class="panel">
             <div id="section3-text">
