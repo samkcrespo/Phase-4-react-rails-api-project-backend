@@ -14,3 +14,4 @@ The technologies used for this project are React & react routing for the client,
 The Volunteer Network application allows users to signup for an account, once signed in they can browse upcoming volunteer opportunities, signup for an opportunity, view their profile which shows their upcoming commitments, as well as organize a volunteer opportunity. Organizing an opportunity was the inspiration for building this app - to make it easier to have a one spot shop to have like minded individuals logging in ready to volunteer their time and making it easier for people to share their ideas.
 
 
+![Project Images](vn.png "Volunteer Network Images")
